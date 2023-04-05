@@ -1,6 +1,6 @@
 // constructor funtions
 // the aim of constructor, to create a template for adding more data to asign to a cookie store.
-"use strict";
+// "use strict";
 // constructor functions, HAS to have capital as the first letter. Not camel case.
 // functions are objects.
 // when we are creating constructor func. Need to start with 'this.' function
@@ -41,6 +41,7 @@
 // console.log(cookieStore3.avgCookies);
 
 // Creating a Prototype for construction, will create a template to enter code without making it heavy by creating the same function each time for our code.
+
 function CookieStand(name, minCust, maxCust, avgCookies) {
   this.name = name;
   this.minCust = minCust;

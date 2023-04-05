@@ -46,7 +46,7 @@ Kitten.prototype.render = function () {
   articleElem.appendChild(tableElem);
   // table header row
   const headerRow = document.createElement("tr");
-  tableElement.appendChild(headerRow);
+  tableElem.appendChild(headerRow);
 
   //   header cells
   const kidsHeaderCell = document.createElement("th");

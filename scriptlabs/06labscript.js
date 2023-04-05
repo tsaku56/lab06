@@ -75,9 +75,9 @@ seattle.render();
 
 // const dubai = {
 //   location: "Dubai",
-//   minCustPerHour: 3,
-//   maxCustPerHour: 24,
-//   avgCookiesPerSale: 1.2,
+//   minCustPerHour: 11,
+//   maxCustPerHour: 38,
+//   avgCookiesPerSale: 3.7,
 //   customerEachHour: [],
 //   cookiesEachHour: [],
 //   totalDailyCookies: 0,
@@ -108,9 +108,9 @@ seattle.render();
 
 // const paris = {
 //   location: "Paris",
-//   minCustPerHour: 3,
-//   maxCustPerHour: 24,
-//   avgCookiesPerSale: 1.2,
+//   minCustPerHour: 20,
+//   maxCustPerHour: 38,
+//   avgCookiesPerSale: 2.3,
 //   customerEachHour: [],
 //   cookiesEachHour: [],
 //   totalDailyCookies: 0,
@@ -141,9 +141,9 @@ seattle.render();
 
 // const lima = {
 //   location: "Lima",
-//   minCustPerHour: 3,
-//   maxCustPerHour: 24,
-//   avgCookiesPerSale: 1.2,
+//   minCustPerHour: 2,
+//   maxCustPerHour: 16,
+//   avgCookiesPerSale: 4.6,
 //   customerEachHour: [],
 //   cookiesEachHour: [],
 //   totalDailyCookies: 0,
