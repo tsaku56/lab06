@@ -8,7 +8,7 @@
 
 # lab08
 
-[Class08]
+[Class08](images/sshotclass08.jpg)
 
 # lab09
 
