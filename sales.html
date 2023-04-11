@@ -13,22 +13,31 @@
   <body>
     <header></header>
     <main>
-      <!-- <div>
-        <h2>Seattle</h2>
-        <ul id="seattle"></ul>
-        <h2>Tokyo</h2>
-        <ul id="tokyo"></ul>
-        <h2>Dubai</h2>
-        <ul id="dubai"></ul>
-        <h2>Paris</h2>
-        <ul id="paris"></ul>
-        <h2>Lima</h2>
-        <ul id="lima"></ul>
-      </div> -->
       <div id="sales-table"></div>
+      <div id="new-store-form">
+        <form action="new-store-form">
+          <fieldset>
+            <legend>Cookie Store</legend>
+            <label for="name-input">Store Name</label>
+            <input type="text" id="name-input" name="name" />
+
+            <label for="min-cust-input">Min Cust /hour</label>
+            <input type="text" id="min-cust-input" name="minCust" />
+
+            <label for="max-cust-input">Max Cust / hour</label>
+            <input type="text" id="max-cust-input" name="maxCust" />
+
+            <label for="avg-cookies-input">Avg Cookies Sold</label>
+            <input type="text" id="avg-cookies-input" name="avgCookies" />
+
+            <button id="submit-button" type="submit">SUBMIT</button>
+            <button type="reset">RESET</button>
+          </fieldset>
+        </form>
+      </div>
     </main>
+    <footer>
+      <script src="09labscript.js"></script>
+    </footer>
   </body>
-  <footer>
-    <script src="07labscript.js"></script>
-  </footer>
 </html>
