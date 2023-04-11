@@ -2,10 +2,6 @@ const hours = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm",
 
 const tableElement = document.getElementById("sales-table");
 
-const state = {
-  allCookieStands: [],
-};
-
 function CookieStand(locationName, minCustPerHour, maxCustPerHour, avgCookiePerSale) {
   this.locationName = locationName;
   this.minCustPerHour = minCustPerHour;
@@ -54,70 +50,75 @@ let dubai = new CookieStand("Dubai", 11, 38, 3.7);
 let paris = new CookieStand("Paris", 20, 38, 2.3);
 let lima = new CookieStand("Lima", 2, 16, 4.6);
 
-state.allCookieStands.push(seattle, tokyo, dubai, paris, lima);
+const allShops = [seattle, tokyo, dubai, paris, lima];
 
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function makeHeaderRow() {
-  const tableRow = document.createElement("tr");
-  let tableHeader = document.createElement("th");
-  tableHeader.textContent = "Locations";
-  tableRow.appendChild(tableHeader);
-  for (let i = 0; i < hours.length; i++) {
-    tableHeader = document.createElement("th");
-    tableHeader.textContent = hours[i];
-    tableRow.appendChild(tableHeader);
-  }
-  tableHeader = document.createElement("th");
-  tableHeader.textContent = "Location Totals";
-  tableRow.appendChild(tableHeader);
-  tableElement.appendChild(tableRow);
+let tableRow = document.createElement("tr");
+let th = document.createElement("th");
+th.textContent = "Location";
+tableRow.appendChild(th);
+
+for (let i = 0; i < hours.length; i++) {
+  th = document.createElement("th");
+  th.textContent = hours[i];
+  tableRow.appendChild(th);
 }
 
-function makeFooterRow() {
-  const tableRow = document.createElement("tr");
-  let tableHeader = document.createElement("th");
-  tableHeader.textContent = "Hourly Totals for All Locations";
-  tableRow.appendChild(tableHeader);
-  let totalOfTotals = 0;
-  for (let i = 0; i < hours.length; i++) {
+th = document.createElement("th");
+th.textContent = "Totals";
+tableRow.appendChild(th);
+
+tableElement.appendChild(tableRow);
+
+for (let i = 0; i < allShops.length; i++) {
+  allShops[i].render();
+}
+
+const totalTR = document.createElement("tr");
+function renderTotals() {
+  let totalTHHeading = document.createElement("th");
+  totalTHHeading.textContent = `Hourly Totals:`;
+  totalTR.appendChild(totalTHHeading);
+  let total = 0;
+  for (let k = 0; k < hours.length; k++) {
     let hourlyTotal = 0;
-    for (let j = 0; j < state.allCookieStands.length; j++) {
-      hourlyTotal += state.allCookieStands[j].cookiesEachHour[i];
-      totalOfTotals += state.allCookieStands[j].cookiesEachHour[i];
+    for (let i = 0; i < allShops.length; i++) {
+      hourlyTotal += allShops[i].cookiesEachHour[k];
     }
-    tableHeader = document.createElement("th");
-    tableHeader.textContent = hourlyTotal;
-    tableRow.appendChild(tableHeader);
+    let totalTH = document.createElement("th");
+    totalTH.textContent = hourlyTotal;
+    totalTR.appendChild(totalTH);
+    total += hourlyTotal;
   }
-  tableHeader = document.createElement("th");
-  tableHeader.textContent = totalOfTotals;
-  tableRow.appendChild(tableHeader);
-  tableElement.appendChild(tableRow);
+  let finalTotalTH = document.createElement("th");
+  finalTotalTH.textContent = total;
+  totalTR.appendChild(finalTotalTH);
+
+  tableElement.appendChild(totalTR);
 }
 
-function renderTable() {
-  makeHeaderRow();
-  for (let i = 0; i < state.allCookieStands.length; i++) {
-    state.allCookieStands[i].render();
-  }
-  makeFooterRow();
-}
+renderTotals();
 
-renderTable();
+const cookieForm = document.getElementById("cookie-form");
 
-const submitButtonEl = document.getElementById("new-store-form");
-
-submitButtonEl.addEventListener("submit", function (event) {
+cookieForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  const storeNameInput = event.target.name.value;
-  const minCustInput = event.target.minCust.value;
-  const maxCustInput = event.target.maxCust.value;
-  const avgCookiesInput = event.target.avgCookies.value;
-  const newStore = new CookieStand(storeNameInput, minCustInput, maxCustInput, avgCookiesInput);
-  state.allCookieStands.push(newStore);
-  renderTable();
-  submitButtonEl.reset();
+
+  const name = event.target.newStoreName.value;
+  const minCust = event.target.minCust.value;
+  const maxCust = event.target.maxCust.value;
+  const avgCookies = event.target.avgCookies.value;
+
+  const newStore = new CookieStand(name, minCust, maxCust, avgCookies);
+
+  totalTR.innerHTML = "";
+  newStore.render();
+  document.getElementById("new-store-name").value = "";
+  document.getElementById("min-cust").value = "";
+  document.getElementById("max-cust").value = "";
+  document.getElementById("avg-cookies").value = "";
+  renderTotals();
 });

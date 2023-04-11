@@ -11,33 +11,37 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header></header>
+    <header>Salmon Cookies</header>
     <main>
-      <div id="sales-table"></div>
-      <div id="new-store-form">
-        <form action="new-store-form">
-          <fieldset>
-            <legend>Cookie Store</legend>
-            <label for="name-input">Store Name</label>
-            <input type="text" id="name-input" name="name" />
-
-            <label for="min-cust-input">Min Cust /hour</label>
-            <input type="text" id="min-cust-input" name="minCust" />
-
-            <label for="max-cust-input">Max Cust / hour</label>
-            <input type="text" id="max-cust-input" name="maxCust" />
-
-            <label for="avg-cookies-input">Avg Cookies Sold</label>
-            <input type="text" id="avg-cookies-input" name="avgCookies" />
-
-            <button id="submit-button" type="submit">SUBMIT</button>
-            <button type="reset">RESET</button>
-          </fieldset>
-        </form>
+      <table id="sales-table"></table>
+      <form id="cookie-form">
+        <fieldset>
+          <legend>Create A New Cookie Store</legend>
+          <label>
+            store Name:
+            <input type="text" name="newStoreName" id="new-store-name" />
+          </label>
+          <label>
+            Minimum Customers Per Hour:
+            <input type="text" name="minCust" id="min-cust" />
+          </label>
+          <label>
+            Maximum Customers Per Hour:
+            <input type="text" name="maxCust" id="max-cust" />
+          </label>
+          <label>
+            Average Cookies Sold Per Customer
+            <input type="text" name="avgCookies" id="avg-cookies" />
+          </label>
+          <button id="submit-btn" type="submit">Submit</button>
+          <button id="reset-btn" type="reset">Reset</button>
+        </fieldset>
+      </form>
       </div>
     </main>
     <footer>
       <script src="09labscript.js"></script>
+      Salmon Cookies © 2023
     </footer>
   </body>
 </html>
